@@ -40,7 +40,6 @@ public class Greeting {
 		LanguageTranslator service = new LanguageTranslator();
 		service.setUsernameAndPassword("44a75538-ab18-4f56-acc1-e2d27d8ab6db", "yNaUTJUOkYrL");
 		TranslationResult translationResult = service.translate(text, Language.ENGLISH, Language.valueOf(languagename)).execute();
-		Language.valueOf("");
 		return translationResult.getFirstTranslation();
 	}
 }
