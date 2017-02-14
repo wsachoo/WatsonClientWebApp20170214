@@ -38,7 +38,7 @@ public class Greeting {
 	private String translateToSpanish(String text) {
 
 		LanguageTranslator service = new LanguageTranslator();
-		service.setUsernameAndPassword("080fed6c-547c-4f60-b81d-5b28403d7d53", "RuEjgWz0hWyl");
+		service.setUsernameAndPassword("44a75538-ab18-4f56-acc1-e2d27d8ab6db", "yNaUTJUOkYrL");
 		TranslationResult translationResult = service.translate(text, Language.ENGLISH, Language.SPANISH).execute();
 		return translationResult.getFirstTranslation();
 	}
