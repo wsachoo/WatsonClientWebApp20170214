@@ -11,8 +11,8 @@ public class SpringRestExample1Application /*extends SpringBootServletInitialize
 	public static void main(String[] args) {
 		SpringApplication.run(SpringRestExample1Application.class, args);
 	}
-
-/*	@Override
+/*
+	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(SpringRestExample1Application.class);
 	}*/

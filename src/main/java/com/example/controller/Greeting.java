@@ -2,11 +2,15 @@ package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dataobject.PrintDO;
 import com.example.db.DBService;
+import com.ibm.watson.developer_cloud.language_translator.v2.LanguageTranslator;
+import com.ibm.watson.developer_cloud.language_translator.v2.model.Language;
+import com.ibm.watson.developer_cloud.language_translator.v2.model.TranslationResult;
 
 @Controller
 public class Greeting {
@@ -19,5 +23,23 @@ public class Greeting {
 	public PrintDO greeting() {
 		PrintDO obj = objDBService.insertAndDisplaySampleData();
 		return obj;
+	}
+
+	@RequestMapping("/sachtranslate/{text}")
+	@ResponseBody
+	public String sachtranslate(@PathVariable String text) {
+		
+		System.out.println("Text received is: " + text);
+		String outText = translateToSpanish(text);
+		System.out.println("Text translated is: " + outText);
+		return outText;
+	}
+
+	private String translateToSpanish(String text) {
+
+		LanguageTranslator service = new LanguageTranslator();
+		service.setUsernameAndPassword("080fed6c-547c-4f60-b81d-5b28403d7d53", "RuEjgWz0hWyl");
+		TranslationResult translationResult = service.translate(text, Language.ENGLISH, Language.SPANISH).execute();
+		return translationResult.getFirstTranslation();
 	}
 }
