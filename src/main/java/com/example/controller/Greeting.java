@@ -25,21 +25,22 @@ public class Greeting {
 		return obj;
 	}
 
-	@RequestMapping("/sachtranslate/{text}")
+	@RequestMapping("/sachtranslate/{languagename}/{text}")
 	@ResponseBody
-	public String sachtranslate(@PathVariable String text) {
+	public String sachtranslate(@PathVariable String text, @PathVariable String languagename) {
 		
 		System.out.println("Text received is: " + text);
-		String outText = translateToSpanish(text);
+		String outText = translateToSpanish(text, languagename);
 		System.out.println("Text translated is: " + outText);
 		return outText;
 	}
 
-	private String translateToSpanish(String text) {
+	private String translateToSpanish(String text, String languagename) {
 
 		LanguageTranslator service = new LanguageTranslator();
 		service.setUsernameAndPassword("44a75538-ab18-4f56-acc1-e2d27d8ab6db", "yNaUTJUOkYrL");
-		TranslationResult translationResult = service.translate(text, Language.ENGLISH, Language.SPANISH).execute();
+		TranslationResult translationResult = service.translate(text, Language.ENGLISH, Language.valueOf(languagename)).execute();
+		Language.valueOf("");
 		return translationResult.getFirstTranslation();
 	}
 }
