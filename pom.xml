@@ -6,7 +6,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>SpringRestExample1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>SpringRestExample1</name>
 	<description>Demo project for Spring Boot</description>
@@ -87,9 +87,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
+<!-- 				<configuration>
 					<mainClass>com.example.SpringRestExample1Application</mainClass>
-				</configuration>
+				</configuration> -->
 				<!-- <configuration> <profiles> <profile>cloud</profile> <profile>local</profile> 
 					</profiles> </configuration> -->
 			</plugin>
